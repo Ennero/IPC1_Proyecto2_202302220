@@ -6,7 +6,7 @@ function Router() {
     return (
         <BrowserRouter>
             <Routes>
-                {/* Creación de las distintas rutas que se tendrán (urls) y el componente que se llamará */}
+                {/* las rutas y lo que llamarán */}
                 <Route path='/' element={<Navigate to="/login" />} />
                 <Route path='/login' element={<Login/>} />
                 <Route path='/admin' element={<Admin/>} />

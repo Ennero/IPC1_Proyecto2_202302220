@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react'
 import { Fragment } from 'react';
-import Router from './Components/Router/Router';
+import Router from './Components/Router/Router';//Sale como error pero está bien así (me hizo sufrir mucho esto)
 
+// Es la importación del router
 function App() {
   return (
-    // Importamos el enrutador el cual se encarga de manejar las rutas
     <Fragment>
-      <Router />
+      <Router /> 
     </Fragment>
   );
 }
