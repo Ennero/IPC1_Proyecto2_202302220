@@ -1,22 +1,15 @@
 import './App.css';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-
+import React from 'react';
+import { Fragment } from "react";
+import router from './components/router/router';
 
 
 function App() {
   return (
-    <div className="">
-      
-      <Router>
-      <Routes>
-      <Route />
+    <Fragment>
+          <router />
+    </Fragment>
 
-      </Routes>
-      </Router>
-
-
-    </div>
   );
 }
-
 export default App;

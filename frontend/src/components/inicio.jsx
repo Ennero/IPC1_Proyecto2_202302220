@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const inicio = () => {
   return (
     <div>
-      
+      <p>
+        sdfsadf!
+      </p>
     </div>
   )
 }
