@@ -1,11 +1,10 @@
 import './App.css';
 import React from 'react'
-import { Fragment } from 'react';
+import { Fragment } from 'react';//Recordar que TODO debe iniciar con mayúsculas
 import Router from './Components/Router/Router';
 
 function App() {
   return (
-    // Importamos el enrutador el cual se encarga de manejar las rutas
     <Fragment>
       <Router />
     </Fragment>
