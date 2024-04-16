@@ -1,13 +1,13 @@
-import React, {useState} from 'react'
+import React from 'react';
 
-const inicio = () => {
+export const Inicio = () => {
   return (
     <div>
-      <p>
-        sdfsadf!
-      </p>
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center">USocial</h1>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
-
-export default inicio

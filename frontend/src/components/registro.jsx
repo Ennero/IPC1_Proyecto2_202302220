@@ -1,13 +1,11 @@
-import React,{useState} from 'react'
+import React from 'react';
 
-const registro = () => {
+export const Registro = () => {
   return (
     <div>
       <p>
-        sdfsadf!
+        ¡Bienvenido al registro!
       </p>
     </div>
-  )
+  );
 }
-
-export default registro

@@ -1,16 +1,17 @@
-import {BrowserRouter as Router, Routes, Route, BrowserRouter, Navigate} from "react-router-dom";
-import inicio from "../inicio";
-import registro from "../registro";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Inicio } from '../Inicio';
+import { Registro } from '../Registro';
 
-const router = () => {
-  return (
-    <BrowserRouter>
-        <Routes>
-            <Route path='/' element={<Navigate to="/inicio" />}/>  
-            <Route path='/inicio' element={<inicio />} />
-            <Route path='/login' element={<registro />} />
-        </Routes>
-    </BrowserRouter>
-  );
+function Router() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Navigate to="/inicio" />} />
+                <Route path='/inicio' element={<Inicio/>} />
+                <Route path='/registro' element={<Registro/>} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
-export default router
+
+export default Router;
