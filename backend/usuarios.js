@@ -1,0 +1,2 @@
+[{"carnet":202010033,"nombre":"Rodolfo","apellido":"Morales","genero":"M","facultad":"Ingenieria","carrera":"Mecánica","edad":22,"correo":"holamundo@gmail.com","contraseña":"1234"},
+{"carnet":202010223,"nombre":"Angel","apellido":"Barrera","genero":"F","facultad":"Ingenieria","carrera":"Mecánica","edad":24,"correo":"holamundo@gmail.com","contraseña":"1234"}]
