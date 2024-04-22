@@ -48,8 +48,26 @@ servidor.post('/inicio', (req,res) =>{
     }
 })
 
-servidor.get('/inicio', (req,res)=>{
-    res.json(usuarios)
+servidor.post('/registro',(req,res)=>{
+    const datos= req.body;
+    const carne=usuarios.find(carne=>{
+        if(carne.carnet=== datos.carnet){
+            return carne;
+        }});
+        if(carne){
+            const respuesta={
+                success: false
+            }
+            res.status(404).send(respuesta);
+        }else{
+            usuarios.push(datos);
+            const respuesta={
+                success: true
+            }
+            res.json(respuesta)
+            actualizarArchivo();
+            res.status(201).send('Elemento creado correctamente');
+        }
 })
 
 
