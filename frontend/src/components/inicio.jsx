@@ -35,7 +35,11 @@ export const Inicio = () => {
           const datosUsuario=res.user
           alert(`Bienvenido ${datosUsuario.nombre} ${datosUsuario.apellido}`)
           setCookie('usuario', datosUsuario);
-          navigate('/home')//Recordar que esta será la dirección de donde colocaré TODOOOO
+          if(datosUsuario.carnet===12024){
+            navigate('/admin')
+          }else{
+            navigate('/home')//Recordar que esta será la dirección de donde colocaré TODOOOO
+          }
         }else{
           alert('Carnet o contraseña incorrectos')
         }
