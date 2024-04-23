@@ -53,18 +53,12 @@ export const Registro = () => {
                 .then((res)=>{
                   console.log("Respuesta: " + res)
                   if(res.success){
-                    alert('Usuarion creado correctamente, ya puede iniciar sesión')
+                    alert('Usuario creado correctamente, ya puede iniciar sesión')
                     navigate('/inicio')
                   }else{
                     alert('El carnet '+ carnet +' ya existe')
                   }
                 })
-
-                
-
-
-
-
               } else {
                 alert('Su contraseña no posee caracteres especiales');
               }
@@ -103,8 +97,8 @@ export const Registro = () => {
 
             <form className="row g-3" onSubmit={ingresoDatos}>
               <div className="col-md-4">
-                <label  className="form-label">Ingrese sus nombres</label>
-                <input type="text" onChange={(e) => setNombre(e.target.value)} className="form-control" id="validationDefault01" required></input>
+                <label htmlFor="validationDefault01" className="form-label">Ingrese sus nombres</label>
+                <input type="text" id="validationDefault01" onChange={(e) => setNombre(e.target.value)} className="form-control" required></input>
               </div>
               <div className="col-md-4">
                 <label  className="form-label">Ingrese sus apellidos</label>
@@ -121,7 +115,7 @@ export const Registro = () => {
                 <input type="email" onChange={(e) => setCorreo(e.target.value)} className="form-control" id="validationDefault03" required></input>
               </div>
               <div className="col-md-3">
-                <label  className="form-label">Ingrese su género</label>
+                <label  className="form-label">Escoja su género</label>
                 <select className="form-select" onChange={(e) => setGenero(e.target.value)} id="validationDefault04" required>
                   <option selected disabled value="">Escoger...</option>
                   <option>Femenino</option>
@@ -152,20 +146,13 @@ export const Registro = () => {
               </div>
               <div className="col-12">
                 <div className="row justify-content-center">
-                <button className="btn btn-primary " onClick={ingresoDatos} type="submit">Registrarse</button>
+                <button className="btn btn-primary " type="submit" >Registrarse</button>
                 <p className="text-center">¿Ya tienes cuenta?  <a href="/inicio" className="card-link">Iniciar Sesión</a></p>
                 </div>
-                
               </div>
             </form>
-
-
-
           </div>
         </div>
-
-
-
 
       </div>
 

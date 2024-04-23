@@ -3,6 +3,8 @@ import { Inicio } from '../Inicio';
 import { Registro } from '../Registro';
 import { Home } from '../Home';
 import Admin from '../Admin';
+import { CrearPost } from '../CrearPost';
+
 function Router() {
     return (
         <BrowserRouter>
@@ -12,6 +14,7 @@ function Router() {
                 <Route path='/registro' element={<Registro/>} />
                 <Route path='/home' element={<Home/>} />
                 <Route path='/admin' element={<Admin/>} />
+                <Route path='/crearPost' element={<CrearPost/>} />
             </Routes>
         </BrowserRouter>
     );
