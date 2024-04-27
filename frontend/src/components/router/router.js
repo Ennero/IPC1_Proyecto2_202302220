@@ -4,6 +4,9 @@ import { Registro } from '../Registro';
 import { Home } from '../Home';
 import Admin from '../Admin';
 import { CrearPost } from '../CrearPost';
+import { Editar } from '../Editar';
+import { Publicaciones } from '../Publicaciones';
+import { Tendencias } from '../Tendencias';
 
 function Router() {
     return (
@@ -15,6 +18,9 @@ function Router() {
                 <Route path='/home' element={<Home/>} />
                 <Route path='/admin' element={<Admin/>} />
                 <Route path='/crearPost' element={<CrearPost/>} />
+                <Route path='/editar' element={<Editar/>} />
+                <Route path='/publicaciones' element={<Publicaciones/>} />
+                <Route path='/tendencias' element={<Tendencias/>} />
             </Routes>
         </BrowserRouter>
     );

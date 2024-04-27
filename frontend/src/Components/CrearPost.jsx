@@ -37,32 +37,33 @@ export const CrearPost = () => {
     const guardarPost = () => {
         const usuario = cookies.usuario;
         const fecha = new Date();
+        const date = `${fecha.getFullYear()}-${fecha.getMonth() + 1}-${fecha.getDate()}`;
+        const time = `${fecha.getHours()}:${fecha.getMinutes()}`;
         let datos;
         if (anonimo === true) {
-             datos = {
+            datos = {
                 descripcion: descripcion,
                 categoria: categoria,
                 anonimo: anonimo,
-                fecha: fecha,
+                fecha: "Fecha de publicación: " + date + " a las " + time,
                 imagen: base64,
                 nombre: `Usuario Anónimo`,
                 carrera: "Universidad San Carlos de Guatemala",
                 likes: 0,
                 comentarios: [],
-                anonimo: anonimo
 
             }
         } else {
-             datos = {
+            datos = {
                 descripcion: descripcion,
                 categoria: categoria,
                 anonimo: anonimo,
-                fecha: fecha,
+                fecha: "Fecha de publicación: " + date + " a las " + time,
                 imagen: base64,
                 nombre: `${usuario.nombre} ${usuario.apellido}`,
                 carnet: usuario.carnet,
                 carrera: usuario.carrera,
-                facultad: "("+ usuario.facultad + ")",
+                facultad: "(" + usuario.facultad + ")",
                 likes: 0,
                 comentarios: []
             }
@@ -93,6 +94,12 @@ export const CrearPost = () => {
         setAnonimo(event.target.checked)
     }
 
+    const editar = () => {
+        navigate('/editar');
+
+    }
+
+
     return (
         <Fragment>
             <div style={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", top: "0", backgroundColor: "#00C3FF" }}>
@@ -103,13 +110,23 @@ export const CrearPost = () => {
                                 Inicio
                             </Link>
                         </li>
-                        <li style={{ color: "white" }}>
+                        <li style={{ color: "white", marginRight: "35px" }}>
                             <Link style={{ color: "white", textDecoration: "none" }} to="/crearPost">
                                 Crear Publicación
                             </Link>
                         </li>
+                        <li style={{ color: "white" }}>
+                            <Link style={{ color: "white", textDecoration: "none" }} to="/tendencias">
+                                Tendencias
+                            </Link>
+                        </li>
                     </ul>
 
+                </div>
+                <div style={{ display: "flex", alignItems: "center", height: "10vh", width: "50%", top: 0, flexDirection: "row-reverse", paddingRight: "5%" }}>
+                    <button className="btn btn-warning " onClick={editar}>
+                        Editar Perfil
+                    </button>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", height: "10vh", width: "50%", top: 0, flexDirection: "row-reverse", paddingRight: "5%" }}>
                     <button className="btn btn-danger " onClick={logout}>
@@ -125,7 +142,6 @@ export const CrearPost = () => {
                         </div>
                         <h3>Descripción</h3>
                         <div class="mb-3">
-                            <label class="form-label">Example textarea</label>
                             <textarea class="form-control" rows="3" required onChange={(e) => setDescripcion(e.target.value)}></textarea>
                         </div>
                         <div className="col-md-6">

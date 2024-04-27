@@ -21,6 +21,7 @@ servidor.use(cors({
 
 let usuarios = [];//El arrayList de los usuarios
 let publicaciones = [];//El arraylist de los posts
+let ID=0;
 
 //Comienzo creando y cargando los datos de los archivos
 if (!fs.existsSync(archivo)) {
@@ -110,8 +111,9 @@ servidor.post('/registro', (req, res) => {
 //Esto es para crear el post
 servidor.post('/home',(req, res)=>{
     const nuevoPost=req.body;
+    ID=ID+1;
     const guardarPost={
-        id: (publicaciones.length+1),
+        id: ID,
         descripcion: nuevoPost.descripcion,
         imagen: nuevoPost.imagen,
         categoria: nuevoPost.categoria,
@@ -152,6 +154,71 @@ servidor.delete('/usuarios/:carnet', (req, res) => {
         res.send({ mensaje: 'Usuario eliminado correctamente' });
     }
 });
+
+
+//Eliminar una publicación
+servidor.delete('/home/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    console.log(id)
+    const indice = publicaciones.findIndex(publicacion => {//para encontrar el índice de donde está el carnet
+        console.log(publicacion.id)
+        if (publicacion.id === id) {
+            console.log("Elemento encontrado")
+            return publicacion
+        }
+    });
+    if (indice === -1) {
+        res.status(404).send({ mensaje: 'Elemento no encontrado' });
+    } else {
+        publicaciones.splice(indice, 1);//Si sí lo encontró lo elimina
+        actualizarArchivo2();
+        res.send({ mensaje: 'Usuario eliminado correctamente' });
+    }
+});
+
+//editar Usuario
+servidor.post('/editar/:carnet',(req,res)=>{
+    const carnet=parseInt(req.params.carnet);
+    console.log(carnet)
+    const datos= req.body;
+    const indice=usuarios.findIndex(usuario=> usuario.carnet===carnet);
+    if (indice === -1) {
+        res.status(404).send('Elemento no encontrado');
+    } else {
+        usuarios[indice].nombre = datos.nombre;
+        usuarios[indice].apellido = datos.apellido;
+        usuarios[indice].genero = datos.genero;
+        usuarios[indice].facultad = datos.facultad;
+        usuarios[indice].carrera=datos.carrera;
+        usuarios[indice].correo=datos.correo;
+        usuarios[indice].contraseña=datos.contraseña;
+        actualizarArchivo();
+        res.send({mensaje: 'Usuario actualizado correctamente'});
+    }
+});
+
+//el array ordenado de las top 10 publicaciones
+servidor.get('/top', (req, res) => {
+    const publi=[...publicaciones]
+    const ordenado=publi.sort((a,b)=>b.likes-a.likes);
+    let top10=[];
+    for(let i=0;i<11 && i<publi.length;i++){
+        top10.push(ordenado[i]);
+    }
+    res.json(top10);
+})
+
+servidor.post('/like/:id',(req,res)=>{//aquí lo dejé con el problema de los likes
+    const id= parseInt(req.params.id);
+    const datos =req.body;
+    const indice=publicaciones.findIndex(publicacion=> publicacion.id===id);
+    if (indice === -1) {
+        res.status(404).send('Elemento no encontrado');
+    } else {
+        publicaciones[indice].likes = publicaciones[indice].likes+1
+        actualizarArchivo2();;
+    }
+})
 
 
 

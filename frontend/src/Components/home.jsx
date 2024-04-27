@@ -25,6 +25,26 @@ export const Home = () => {
     removeCookie('usuario');
     navigate('/inicio')
   }
+  const editar = () => {
+    navigate('/editar');
+
+  }
+  const darLike = (item) => {
+      const id=item.id;
+      fetch(`http://localhost:5000/like/${id}`, {
+        method: "POST",
+        body: JSON.stringify(id),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    .then((response)=>response.json())
+    .then((res) => {
+      console.log(res)
+
+    })
+
+  }
 
 
   return (
@@ -37,13 +57,23 @@ export const Home = () => {
                 Inicio
               </Link>
             </li>
-            <li style={{ color: "white" }}>
+            <li style={{ color: "white", marginRight: "35px" }}>
               <Link style={{ color: "white", textDecoration: "none" }} to="/crearPost">
-                Crear nueva publicación
+                Crear Publicación
+              </Link>
+            </li>
+            <li style={{ color: "white" }}>
+              <Link style={{ color: "white", textDecoration: "none" }} to="/tendencias">
+                Tendencias
               </Link>
             </li>
           </ul>
 
+        </div>
+        <div style={{ display: "flex", alignItems: "center", height: "10vh", width: "50%", top: 0, flexDirection: "row-reverse", paddingRight: "5%" }}>
+          <button className="btn btn-warning " onClick={editar}>
+            Editar Perfil
+          </button>
         </div>
         <div style={{ display: "flex", alignItems: "center", height: "10vh", width: "50%", top: 0, flexDirection: "row-reverse", paddingRight: "5%" }}>
           <button className="btn btn-danger " onClick={logout}>
@@ -58,22 +88,32 @@ export const Home = () => {
             <div className="card mb-3 mb-5" key={index}>
               <img className="card-img-top" src={item.imagen} alt="Card image cap" />
               <div className="card-body ">
-              <div className="card bg-info" style={{width: '16rem'}} Color="green">
-              <h1 className="card-title centered-text">{item.categoria}</h1>
-              </div>
+                <div className="card bg-info" style={{ width: '16rem' }} Color="green">
+                  <h1 className="card-title centered-text">{item.categoria}</h1>
+                </div>
                 <h3 className="card-title">{item.nombre}</h3>
                 <p className='card-title'>{item.carrera} {item.facultad}</p>
                 <p className="card-text">{item.descripcion}</p>
 
               </div>
               <div className='card-footer'>
-              <h6>{item.fecha}</h6>
-              <p >Likes: {item.likes}</p>
-              <p > Comentarios: {item.comentarios}</p>
+                <h6>{item.fecha}</h6>
+
+                <ul style={{ listStyleType: "none", display: "flex", padding: 0, height: "100%", alignItems: "center", margin: "0px" }}>
+                  <li style={{ marginRight: "35px" }}>
+                    <p>Likes: {item.likes}</p>
+                  </li>
+                  <li>
+                    <button className="btn btn-outline-danger" onClick={darLike(item)} style={{ marginRight: "5%" }}>
+                      Like
+                    </button>
+                  </li>
+                </ul>
+                <p> Comentarios: {item.comentarios}</p>
 
 
               </div>
-              
+
             </div>
           ))
         }

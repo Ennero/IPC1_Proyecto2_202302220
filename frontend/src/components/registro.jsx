@@ -153,20 +153,7 @@ export const Registro = () => {
             </form>
           </div>
         </div>
-
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
   );
