@@ -141,8 +141,8 @@ export const CrearPost = () => {
                             <h1>NUEVA PUBLICACIÓN</h1>
                         </div>
                         <h3>Descripción</h3>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="3" required onChange={(e) => setDescripcion(e.target.value)}></textarea>
+                        <div className="mb-3">
+                            <textarea className="form-control" rows="3" required onChange={(e) => setDescripcion(e.target.value)}></textarea>
                         </div>
                         <div className="col-md-6">
                             <label className="form-label">Escoja la categoria de la publicación</label>

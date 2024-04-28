@@ -208,9 +208,8 @@ servidor.get('/top', (req, res) => {
     res.json(top10);
 })
 
-servidor.post('/like/:id',(req,res)=>{//aquí lo dejé con el problema de los likes
-    const id= parseInt(req.params.id);
-    const datos =req.body;
+servidor.post('/like/:id',(req,res)=>{//Tips para futuros likes
+    const id= parseInt(req.params.id);//Usar siempre post y usar una función flecha en el botón para que no se ejecute solito
     const indice=publicaciones.findIndex(publicacion=> publicacion.id===id);
     if (indice === -1) {
         res.status(404).send('Elemento no encontrado');
@@ -218,6 +217,7 @@ servidor.post('/like/:id',(req,res)=>{//aquí lo dejé con el problema de los li
         publicaciones[indice].likes = publicaciones[indice].likes+1
         actualizarArchivo2();;
     }
+    res.status(201).send({response: 'Like dado'})
 })
 
 

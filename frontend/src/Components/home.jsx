@@ -29,21 +29,22 @@ export const Home = () => {
     navigate('/editar');
 
   }
-  const darLike = (item) => {
-      const id=item.id;
-      fetch(`http://localhost:5000/like/${id}`, {
-        method: "POST",
-        body: JSON.stringify(id),
-        headers: {
-            "Content-Type": "application/json",
-        },
+  const darLike = (ITEM) => {
+    const datos = ITEM;
+    fetch(`http://localhost:5000/like/${ITEM.id}`, {
+      method: "POST",
+      body: JSON.stringify(datos),
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-    .then((response)=>response.json())
-    .then((res) => {
-      console.log(res)
-
-    })
-
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res)
+      }).catch((error) => {
+        console.error("Error al dar likes: ", error)
+      })
+    window.location.reload();
   }
 
 
@@ -88,7 +89,7 @@ export const Home = () => {
             <div className="card mb-3 mb-5" key={index}>
               <img className="card-img-top" src={item.imagen} alt="Card image cap" />
               <div className="card-body ">
-                <div className="card bg-info" style={{ width: '16rem' }} Color="green">
+                <div className="card bg-info" style={{ width: '16rem' }} color="green">
                   <h1 className="card-title centered-text">{item.categoria}</h1>
                 </div>
                 <h3 className="card-title">{item.nombre}</h3>
@@ -104,7 +105,7 @@ export const Home = () => {
                     <p>Likes: {item.likes}</p>
                   </li>
                   <li>
-                    <button className="btn btn-outline-danger" onClick={darLike(item)} style={{ marginRight: "5%" }}>
+                    <button className="btn btn-outline-danger" onClick={() => darLike(item)} style={{ marginRight: "5%" }}>
                       Like
                     </button>
                   </li>

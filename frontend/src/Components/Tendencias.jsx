@@ -33,6 +33,24 @@ export function Tendencias() {
 
     }
 
+    const darLike = (ITEM) => {
+        const datos = ITEM;
+        fetch(`http://localhost:5000/like/${ITEM.id}`, {
+            method: "POST",
+            body: JSON.stringify(datos),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((res) => {
+                console.log(res)
+            }).catch((error) => {
+                console.error("Error al dar likes: ", error)
+            })
+        window.location.reload();
+    }
+
 
     return (
         <Fragment>
@@ -85,7 +103,16 @@ export function Tendencias() {
                             </div>
                             <div className='card-footer'>
                                 <h6>{item.fecha}</h6>
-                                <p >Likes: {item.likes}</p>
+                                <ul style={{ listStyleType: "none", display: "flex", padding: 0, height: "100%", alignItems: "center", margin: "0px" }}>
+                                    <li style={{ marginRight: "35px" }}>
+                                        <p>Likes: {item.likes}</p>
+                                    </li>
+                                    <li>
+                                        <button className="btn btn-outline-danger" onClick={() => darLike(item)} style={{ marginRight: "5%" }}>
+                                            Like
+                                        </button>
+                                    </li>
+                                </ul>
                                 <p > Comentarios: {item.comentarios}</p>
 
 

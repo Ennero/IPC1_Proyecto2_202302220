@@ -106,8 +106,8 @@ export const Inicio = () => {
             <div className="card-body">
               <h5 className="card-title">Información de Contacto</h5>
               <p className="card-text">Ante cualquier <b>duda, problema o sugerencia</b> que se pueda tener en la publicación, ingreso, registro o en cualquier proceso relacionado
-                con esta página, contactar al <b>+502 4477-7547</b> o escribir a algunos de los siguientes correos: <b> enneresaemen@gmail.com</b> o
-                <b> 2895884051401@Ingenieria.usac.edu.gt</b> se responderá dentro de los próximos 5 días hábiles</p>
+                con esta página, contactar al <b>+502 4477-5423</b> o escribir a algunos de los siguientes correos: <b> enneresaemend@gmail.com</b> o
+                <b> 289588403451401@Ingenieria.usac.edu.gt</b> se responderá dentro de los próximos 5 días hábiles</p>
             </div>
           </div>
         </div>
