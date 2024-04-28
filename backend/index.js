@@ -3,8 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 
-
-
 const servidor = express();//variables imporantes
 const puerto = 5000;
 const archivo = 'usuarios.js';//Archivito para guardar al salir
@@ -75,14 +73,6 @@ servidor.post('/inicio', (req, res) => {
         }
         res.json(respuesta)
     }
-})
-
-
-servidor.post('/subir', (req,res) =>{
-    const datos=req.body;
-    usuarios.push(datos);
-    actualizarArchivo();
-    res.status(201).send({response: 'Usuarios cargados correctamente'});
 })
 
 //Crear Usuario
@@ -208,6 +198,7 @@ servidor.get('/top', (req, res) => {
     res.json(top10);
 })
 
+//Se encarga de los likes
 servidor.post('/like/:id',(req,res)=>{//Tips para futuros likes
     const id= parseInt(req.params.id);//Usar siempre post y usar una función flecha en el botón para que no se ejecute solito
     const indice=publicaciones.findIndex(publicacion=> publicacion.id===id);
