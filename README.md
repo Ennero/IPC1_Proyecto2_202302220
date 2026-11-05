@@ -1,68 +1,50 @@
-<div align="center">
+# Aplicación de publicaciones y usuarios con React y Express
 
-# 🌐 Dynamic Web Application & Interactive Simulation in JavaScript (IPC1)
+Aplicación web con registro/inicio de sesión, creación de publicaciones y vista administrativa. Está dividida en frontend React con Create React App y API Express.
 
-**Plataforma web con animaciones interactivas, manipulación del DOM y lógica algorítmica en JavaScript, HTML5 y CSS3.**
+## Requisitos
 
-[![Language](https://img.shields.io/badge/Language-JavaScript,%20HTML,%20CSS-blue?style=for-the-badge)](https://github.com/Ennero/IPC1_Proyecto2_202302220)
-[![Course](https://img.shields.io/badge/Course-Introducción%20a%20la%20Programación%20y%20Computación%201-003366?style=for-the-badge)](https://ingenieria.usac.edu.gt/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+Node.js y npm compatibles con react-scripts 5.0.1. Instalar dependencias de frontend y backend por separado.
 
-</div>
+## Ejecución
 
----
+Los comandos parten de la raíz del repositorio, salvo donde se indica otra terminal.
 
+```bash
+cd backend
+npm ci
+npm start
 
-## 📌 Descripción General
-
-Este repositorio contiene la implementación y entrega de **🌐 Dynamic Web Application & Interactive Simulation in JavaScript (IPC1)**, desarrollado en el curso de **Introducción a la Programación y Computación 1** en la Universidad de San Carlos de Guatemala.
-
-- **Objetivo:** Plataforma web con animaciones interactivas, manipulación del DOM y lógica algorítmica en JavaScript, HTML5 y CSS3.
-- **Stack Principal:** `JavaScript, HTML, CSS`.
-- **Área:** Ciencias de la Computación, Algoritmos y Desarrollo de Software.
-
----
-
-## 🚀 Características y Componentes
-
-- Implementación modular y buenas prácticas de codificación.
-- Manejo estructurado de datos, control de flujo y validaciones.
-- Documentación y scripts de soporte para compilación o ejecución.
-
----
-
-## 📦 Estructura del Proyecto
-
-```
-IPC1_Proyecto2_202302220/
-├── src/ o archivos de código fuente
-├── docs/ (si aplica)
-├── .gitignore
-├── LICENSE
-└── README.md
+# Otra terminal, desde la raíz:
+cd frontend
+npm ci
+npm start
 ```
 
----
+## Recorrido de demostración
 
-## ⚙️ Requisitos y Ejecución
+Abrir http://localhost:3000 para React; la API escucha en http://localhost:5000, según backend/index.js. La API usa archivos/colecciones locales para usuarios y publicaciones.
 
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/Ennero/IPC1_Proyecto2_202302220.git
-   cd IPC1_Proyecto2_202302220
-   ```
-2. Ejecutar según el entorno (`JavaScript, HTML, CSS`):
-   - Consultar los scripts o archivos principales del proyecto para parámetros específicos.
+## Organización
 
----
+Carpetas de la entrega: [`backend/`](backend/), [`frontend/`](frontend/).
 
-## 📄 Licencia
+## Documentación
 
-Este proyecto está bajo la Licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+- [README](frontend/README.md)
 
----
+## Alcance y límites
 
-## 👨‍💻 Autor
+Autenticación y persistencia corresponden a una entrega académica. No se atribuye al backend una suite automatizada: sus verificaciones de sintaxis están en npm run check.
 
-- **Enner Mendizabal** - [@Ennero](https://github.com/Ennero)  
-- *Facultad de Ingeniería, Universidad de San Carlos de Guatemala.*
+## Contexto y licencia
+
+Trabajo académico o de aprendizaje conservado en el portafolio de [Enner Mendizabal](https://github.com/Ennero). Los créditos de los trabajos en grupo se conservan en sus entregas y manuales.
+
+Consultar [LICENSE](LICENSE) para la licencia de la raíz. Las dependencias y los componentes con avisos o licencias propios conservan sus condiciones.
+
+### Licencias declaradas por componente
+
+La licencia de la raíz no sustituye las declaraciones de estos manifiestos:
+
+- `backend/package.json`: `ISC`.
